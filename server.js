@@ -2,11 +2,22 @@ import cors from 'cors';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware as apolloMiddleware } from '@apollo/server/express4';
 import express from 'express';
+import testStore from './src/testStore.js'
+
 const app = express();
 const PORT = 9000;
 
+testStore.setVal(1)
+// setVal(1)
+
 app.get('/', (req, res) => {
-    res.send('<h1>Welcome to the GQL Server</h1>')
+
+    // setVal(1)
+    testStore.setVal(1)
+    res.send(`<h1>Welcome to the GQL Server</h1>
+        
+        Value of setT: ${testStore.setVal()}
+        `)
 })
 app.use(cors(), express.json())
 const typeDefs = `#graphql
