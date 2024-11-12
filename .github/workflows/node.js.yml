@@ -16,10 +16,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: nvm ls remote
-    - name: Set up node using nvm
-      uses: dcodeIO/setup-node-nvm@v5
-      with:
-        node-version: '20.13.1'
+    # - name: Set up node using nvm
+    #   uses: dcodeIO/setup-node-nvm@v5
+    #   with:
+    #     node-version: '20.13.1'
     - run: npm ci
     - run: npm run build --if-present
 #    - run: npm test
